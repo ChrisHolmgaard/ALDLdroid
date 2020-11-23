@@ -1,0 +1,525 @@
+<ADXFORMAT version="1.01">
+  <!-- Written 06/30/2020 10:47:17 -->
+  <ADXHEADER>
+    <guid>4948f148-506d-4384-b7b8-364330319c5f</guid>
+    <flags>0x10000</flags>
+    <objectcount>37</objectcount>
+    <userversion>3.0</userversion>
+    <author>Murray - BTS</author>
+    <desc>This logging definition has been made for use with the android application ALDLdroid to log the MS41.2 DME found in E36 and E39 BMWs.&#013;&#010;&#013;&#010;This definition is also compatible for users running MS41.3 with custom code developed by Abhishek Shinde.&#013;&#010;&#013;&#010;&#010;&#010;For more information and support contact Murray at:&#013;&#010;&#010;Bavariantuningsolutions@gmail.com</desc>
+    <baud>9600</baud>
+    <parity>2</parity>
+    <DEPENDSONPLUGIN guid="26332255-32ab-4033-8d1d-9fac9af94d1f" filename="DS2plugin.dll" desc="DS2 checksum validation" minvermajor="1" minverminor="0" />
+    <DEFAULTS datasizeinbits="8" sigdigits="2" outputtype="3" baud="0" signed="0" lsbfirst="0" float="0" />
+    <connectcmd>CONNECT</connectcmd>
+    <monitorcmd>MONITORMACRO</monitorcmd>
+  </ADXHEADER>
+
+  <ADXVALUE id="BATTERY" idhash="0xE1E28EEC" title="Battery">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>V</units>
+    <packetoffset>0x00</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="16.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>66</datatype>
+    <unittype>32</unittype>
+    <MATH equation="x*0.102">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="INJECTIONTIME" idhash="0xFE27D0CA" title="Injection Time">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>ms</units>
+    <packetoffset>0x02</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>3</digcount>
+    <outputtype>3</outputtype>
+    <datatype>51</datatype>
+    <unittype>85</unittype>
+    <MATH equation="X*0.004">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="LOAD" idhash="0xAA726CF9" title="Load">
+    <desc>Engine Load</desc>
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>mg/stk</units>
+    <packetoffset>0x04</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="1000.000000" />
+    <alarms low="0.000000" high="900.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>23</datatype>
+    <unittype>90</unittype>
+    <MATH equation="X*0.0212">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="Ignition" idhash="0xCE96BECA" title="Ignition Angle">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>Deg</units>
+    <packetoffset>0x06</packetoffset>
+    <range low="0.000000" high="100.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>39</datatype>
+    <unittype>23</unittype>
+    <MATH equation="X*0.373-23.6">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="KNOCK-CURRENT" idhash="0x9F60A0CE" title="Knock - Current">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>Deg</units>
+    <packetoffset>0x07</packetoffset>
+    <range low="0.000000" high="16.000000" />
+    <alarms low="11.500000" high="15.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>35</datatype>
+    <unittype>23</unittype>
+    <MATH equation="(x-128)*0.375">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="VEHICLESPEED" idhash="0xDD1D236C" title="Vehicle Speed">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>km/h</units>
+    <packetoffset>0x08</packetoffset>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>5</datatype>
+    <unittype>6</unittype>
+    <MATH equation="X">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="THROTTLEPOSA" idhash="0x880CCCE2" title="Throttle Position">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>%</units>
+    <packetoffset>0x09</packetoffset>
+    <range low="0.000000" high="100.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>57</datatype>
+    <unittype>67</unittype>
+    <MATH equation="X*100/255">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXCSENDCOMMAND id="CLEARDTCS" idhash="0xD6BA0C2D" title="Clear DTCs" basecmdflags="0x03">
+    <bytestring size="0x4">12040513</bytestring>
+  </ADXCSENDCOMMAND>
+
+  <ADXMACRO id="MONITORMACRO" idhash="0xD177CF5B" title="Monitor Macro" basecmdflags="0x01" repeatcount="1">
+    <NODE commandID="REQUESTANALOG2" repeatcount="1" />
+    <NODE commandID="ANALOGREPLY2" repeatcount="1" />
+  </ADXMACRO>
+
+  <ADXMACRO id="CONNECT" idhash="0xE7B186B1" title="connect" repeatcount="1">
+    <NODE commandID="REQUESTANALOG1" repeatcount="1" />
+    <NODE commandID="ANALOGREPLY1" repeatcount="1" />
+  </ADXMACRO>
+
+  <ADXCSENDCOMMAND id="REQUESTANALOG1" idhash="0xC18732D9" title="Request Analog 1">
+    <bytestring size="0x88">12880B011A020E000007010000DA1E010000FC52000000E989000000E98D000000F19A000000E8D0010000DA2A010000DA34000000DA5A000000DA50000000FC9C000000E905000000E903000000DA56010000F028010000F0D4000000F01F000000F0CB000000F031000000F0DD020E000006020E000001020E000002020E000019020E00001A8C</bytestring>
+  </ADXCSENDCOMMAND>
+
+  <ADXCLISTENPACKET id="ANALOGREPLY1" idhash="0x2333458F" title="Analog Reply 1" flags="0x00000005">
+    <listentimeout>500</listentimeout>
+    <packetbodylength>140</packetbodylength>
+    <packetoffsetinbody>0</packetoffsetinbody>
+    <packetsize>140</packetsize>
+  </ADXCLISTENPACKET>
+
+  <ADXCSENDCOMMAND id="REQUESTANALOG2" idhash="0xC1872879" title="Request Analog 2">
+    <bytestring size="0x6">12060B001A05</bytestring>
+  </ADXCSENDCOMMAND>
+
+  <ADXCLISTENPACKET id="ANALOGREPLY2" idhash="0x23335F2F" title="Analog Reply 2" flags="0x00000005">
+    <listentimeout>500</listentimeout>
+    <packetbodylength>48</packetbodylength>
+    <packetoffsetinbody>9</packetoffsetinbody>
+    <packetsize>39</packetsize>
+  </ADXCLISTENPACKET>
+
+  <ADXVALUE id="RPM" idhash="0xCD0CD1DB" title="RPM">
+    <desc>n</desc>
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>RPM</units>
+    <packetoffset>0x0A</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="8160.000000" />
+    <alarms low="500.000000" high="6500.000000" />
+    <digcount>1</digcount>
+    <outputtype>1</outputtype>
+    <datatype>6</datatype>
+    <unittype>4</unittype>
+    <MATH equation="X">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="MASSAIRFLOW" idhash="0x98551EFD" title="Mass Air Flow">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>kg/hr</units>
+    <packetoffset>0x0C</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="1024.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>26</datatype>
+    <unittype>13</unittype>
+    <MATH equation="0.25*X">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="COOLANTTEMP" idhash="0x2F4C9E7C" title="Coolant Temp">
+    <desc>tco</desc>
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>Deg C</units>
+    <packetoffset>0x0E</packetoffset>
+    <range low="-48.000000" high="185.500000" />
+    <alarms low="0.000000" high="100.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>13</datatype>
+    <unittype>15</unittype>
+    <MATH equation="X*0.747-48.0">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="INTAKEAIRTEMP" idhash="0x0882C50D" title="Intake Air Temp">
+    <desc>tia</desc>
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>Deg C</units>
+    <packetoffset>0x0F</packetoffset>
+    <range low="-48.000000" high="190.500000" />
+    <alarms low="0.000000" high="80.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>19</datatype>
+    <unittype>15</unittype>
+    <MATH equation="X*0.747-48.0">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="VANOSANGLE" idhash="0x36AC9351" title="Vanos Angle">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>Deg</units>
+    <packetoffset>0x10</packetoffset>
+    <range low="0.000000" high="60.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>38</datatype>
+    <unittype>23</unittype>
+    <MATH equation="x*0.3745">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="IACV" idhash="0xACD89639" title="IACV">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>%</units>
+    <packetoffset>0x11</packetoffset>
+    <range low="0.000000" high="100.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>36</datatype>
+    <unittype>68</unittype>
+    <MATH equation="x*0.00153">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="IACVPWM" idhash="0x4B48DDAC" title="IACV PWM">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>%</units>
+    <packetoffset>0x12</packetoffset>
+    <range low="0.000000" high="100.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>36</datatype>
+    <unittype>67</unittype>
+    <MATH equation="X*0.00153">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="purge" idhash="0x74566F95" title="Purge Valve ">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>%</units>
+    <packetoffset>0x13</packetoffset>
+    <range low="0.000000" high="120.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <unittype>68</unittype>
+    <MATH equation="X*100/255">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="IDLELTFTBANK1%" idhash="0x1D409176" title="Idle LTFT Bank 1%">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>ms</units>
+    <packetoffset>0x14</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="-1.000000" high="1.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>49</datatype>
+    <unittype>85</unittype>
+    <MATH equation="(x-32768)*0.004">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="IDLELTFTBANK2%" idhash="0x1D43C576" title="Idle LTFT Bank 2%">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>%</units>
+    <packetoffset>0x16</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="-1.000000" high="1.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>49</datatype>
+    <unittype>67</unittype>
+    <MATH equation="(x-32768)*0.004">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="STFTBANK1%" idhash="0xF7CD5361" title="STFT Bank 1%">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>%</units>
+    <packetoffset>0x18</packetoffset>
+    <range low="-50.000000" high="50.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>50</datatype>
+    <unittype>67</unittype>
+    <MATH equation="(x-128)*0.392">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="STFTBANK2%" idhash="0xF7CE0761" title="STFT Bank 2%">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>%</units>
+    <packetoffset>0x19</packetoffset>
+    <range low="-50.000000" high="50.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>50</datatype>
+    <unittype>67</unittype>
+    <MATH equation="(x-128)*0.392">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="LTFTBANK1%" idhash="0xF6995361" title="LTFT Bank 1%">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>%</units>
+    <packetoffset>0x1A</packetoffset>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>49</datatype>
+    <unittype>67</unittype>
+    <MATH equation="(x-128)*0.392">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="LTFTBANK2%" idhash="0xF69A0761" title="LTFT Bank 2%">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>%</units>
+    <packetoffset>0x1B</packetoffset>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>49</datatype>
+    <unittype>67</unittype>
+    <MATH equation="(x-128)*0.392">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="MAFV" idhash="0xAF698639" title="MAF V">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>V</units>
+    <packetoffset>0x1C</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="5.200000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>73</datatype>
+    <unittype>32</unittype>
+    <MATH equation="X*0.01952">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="FRONTO2BANK1" idhash="0x4B534D26" title="Front O2 Bank 1">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>V</units>
+    <packetoffset>0x1E</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="5.100000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>58</datatype>
+    <unittype>32</unittype>
+    <MATH equation="x*0.01952">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="FRONTO2BANK2" idhash="0x4B535786" title="Front O2 Bank 2">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>V</units>
+    <packetoffset>0x20</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="5.100000" />
+    <alarms low="0.000000" high="4.900000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>58</datatype>
+    <unittype>32</unittype>
+    <MATH equation="x*0.01952">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="REARO2BANK1" idhash="0xF17B1E42" title="Rear O2 Bank 1">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>V</units>
+    <packetoffset>0x22</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="5.100000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>58</datatype>
+    <unittype>32</unittype>
+    <MATH equation="x*0.01952">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="REARO2BANK2" idhash="0xF17B04E2" title="Rear O2 Bank 2">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>V</units>
+    <packetoffset>0x24</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="5.100000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>58</datatype>
+    <unittype>32</unittype>
+    <MATH equation="x*0.01952">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="BOOST" idhash="0xE2448F75" title="Boost">
+    <desc>GM 3 bar MAP sensor connected to rear o2 bank 1</desc>
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>Psi</units>
+    <packetoffset>0x22</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="43.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>24</datatype>
+    <unittype>18</unittype>
+    <MATH equation="((x*0.01952)*8.94)-14.53">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="AEMAFR" idhash="0x8099B4E8" title="AEM AFR">
+    <desc>AEM wideband connected to bank 2 rear O2 sensor</desc>
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>AFR</units>
+    <packetoffset>0x24</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="7.000000" high="20.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>28</datatype>
+    <unittype>21</unittype>
+    <MATH equation="((x*0.01952)*2.375)+7.3125">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="INNOVATEAFR" idhash="0x6CB652C7" title="Innovate AFR">
+    <desc>Innovate wideband connected to bank 2 rear O2 sensor</desc>
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>AFR</units>
+    <packetoffset>0x24</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="7.000000" high="23.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>28</datatype>
+    <unittype>21</unittype>
+    <MATH equation="((x*0.01952)*3.008)+7.35">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="LC-1AFR" idhash="0xA7788763" title="LC-1 AFR">
+    <parentcmdidhash>0x23335F2F</parentcmdidhash>
+    <units>AFR</units>
+    <packetoffset>0x20</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.700000" high="22.389999" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>58</datatype>
+    <unittype>21</unittype>
+    <MATH equation="((x*0.01952)*2.375)+7.3125">
+      <VAR varID="x" type="native" />
+    </MATH>
+  </ADXVALUE>
+</ADXFORMAT>
