@@ -1,12 +1,12 @@
 <ADXFORMAT version="1.01">
-  <!-- Written 11/18/2020 22:22:51 -->
+  <!-- Written 11/23/2020 11:35:48 -->
   <ADXHEADER>
     <guid>4948f148-506d-4384-b7b8-364330319c5f</guid>
     <flags>0x10000</flags>
     <objectcount>112</objectcount>
     <userversion>1</userversion>
     <author>Murray - BTS</author>
-    <desc>Modified version of the MS4x Dev Team Extended logging definition, for use with ADLDdroid&#013;&#010;&#013;&#010;Logger definition for the custom 0B B0 logging command.</desc>
+    <desc>Modified version of the MS4x Dev Team Extended logging definition, for use with ADLDdroid.&#013;&#010;&#013;&#010;For this to work, you must have patched your full binary with the DS2 patch.</desc>
     <baud>9600</baud>
     <parity>2</parity>
     <DEPENDSONPLUGIN guid="26332255-32ab-4033-8d1d-9fac9af94d1f" filename="DS2plugin.dll" desc="DS2 checksum validation" minvermajor="1" minverminor="0" />
